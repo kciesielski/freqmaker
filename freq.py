@@ -35,7 +35,7 @@ for file in os.listdir(data_dir):
                     if not token.is_stop and not token.is_punct and not token.is_space]
             word_cnt = Counter(words)
             the_great_counter.update(word_cnt)
-        except err:
+        except Exception as err:
             print(f"Skipping {file.name} due to {err}")
 
 print("Sorting...")

@@ -9,9 +9,14 @@ data_dir = './data'
 spacy.require_gpu()
 nlp = spacy.load("ru_core_news_lg")
 the_great_counter = Counter()
+total_files = len(os.listdir(data_dir))
+i = 0
 
 for file in os.listdir(data_dir):
+    i = i + 1
     with open(f'{data_dir}/{file}', 'r') as opened_file:        
+        progress = int((i * 100) / total_files)
+        print(f"Progress: {progress}%")
         print(f"Loading {opened_file.name}...")
         try:
             txt = opened_file.read()
@@ -38,7 +43,6 @@ for file in os.listdir(data_dir):
                     for token in doc
                     if not token.is_stop and not token.is_punct and not token.is_space]
             word_cnt = Counter(words)
-            print(word_cnt)
             the_great_counter.update(word_cnt)
         except Exception as err:
             print(f"Skipping {opened_file.name} due to {err}")

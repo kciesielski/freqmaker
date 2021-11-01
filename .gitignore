@@ -10,6 +10,8 @@ __pycache__/
 .Python
 build/
 develop-eggs/
+data/
+subtitles.txt
 dist/
 downloads/
 eggs/

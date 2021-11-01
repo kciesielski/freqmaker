@@ -1,5 +1,6 @@
 import csv
 import re
+import traceback
 import os
 from collections import Counter
 import spacy
@@ -16,15 +17,19 @@ for file in os.listdir(data_dir):
             txt = file.read()
             print("Sanitizing...")
             # keep only russian characters and hyphens
-            c1 = re.sub(r"[^\u0400-\u04FF\-\s]+", "", txt)
+            c01 = re.sub(r"[\\\/()]", " ", txt)
+            # keep only russian characters and hyphens
+            c1 = re.sub(r"[^\u0400-\u04FF\-\s]+", " ", c01)
             # replace multiple hyphens to single hyhpens
             c2 = re.sub(r"[\-]{2,}", "-", c1)
             # remove hyphens which appear in the begging of words
             c3 = re.sub(r"([^\u0400-\u04FF])\-([\u0400-\u04FF])", "\g<1> \g<2>", c2)
             # remove hyphens which appear in the end of words
             c4 = re.sub(r"([\u0400-\u04FF])\-([^\u0400-\u04FF])", "\g<1> \g<2>", c3)
-            clean_text = re.sub("\n", " ", c4)
-
+            c5 = re.sub("\n", " ", c4)
+            # reducing multiple spaces to single spaces
+            clean_text = re.sub(r"[\s]{2,}", " ", c5)
+            print(clean_text)
             print("Running NLP...")
             # Let spaCy do its magic
             doc = nlp(clean_text)
@@ -37,6 +42,7 @@ for file in os.listdir(data_dir):
             the_great_counter.update(word_cnt)
         except Exception as err:
             print(f"Skipping {file.name} due to {err}")
+            print(traceback.format_exc())
 
 print("Sorting...")
 sorted_freqs = the_great_counter.most_common(15000)

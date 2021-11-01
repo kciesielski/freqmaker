@@ -45,7 +45,7 @@ for file in os.listdir(data_dir):
             print(traceback.format_exc())
 
 print("Sorting...")
-sorted_freqs = the_great_counter.most_common(15000)
+sorted_freqs = the_great_counter.most_common(25000)
 print("Writing result...")
 with open('freq.csv', 'w', newline='') as csvfile:
     csv_writer = csv.writer(csvfile, delimiter=',',

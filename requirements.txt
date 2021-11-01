@@ -1,3 +1,4 @@
 spacy==3.1.*
+youtube-transcript-api==0.4.1
 falcon==2.0.0
 pytest

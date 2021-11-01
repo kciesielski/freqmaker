@@ -17,7 +17,8 @@ channels = [
     'UCU_a2V_uDPSxvbV2B0tW7vA', #  Всё как у зверей
     'UC6cqazSR6CnVMClY0bJI0Lg', # Bad Comedian
     'UCU_yU4xGT9hrVFo6euH8LLw', # Slivki Show
-    'UCxDZs_ltFFvn0FDHT6kmoXA' # Bald and Bankrupt
+    'UCxDZs_ltFFvn0FDHT6kmoXA', # Bald and Bankrupt
+    'UCqw4zVI5THL2c8kUacGLQmg' # LU;KI
 ]
 
 lang = 'ru'

@@ -5,16 +5,16 @@ import os
 from collections import Counter
 import spacy
 
-data_dir = './test-data'
+data_dir = './data'
 spacy.require_gpu()
 nlp = spacy.load("ru_core_news_lg")
 the_great_counter = Counter()
 
 for file in os.listdir(data_dir):
-    with open(f'{data_dir}/{file}', 'r') as file:        
-        print(f"Loading {file.name}...")
+    with open(f'{data_dir}/{file}', 'r') as opened_file:        
+        print(f"Loading {opened_file.name}...")
         try:
-            txt = file.read()
+            txt = opened_file.read()
             print("Sanitizing...")
             # keep only russian characters and hyphens
             c01 = re.sub(r"[\\\/()]", " ", txt)
@@ -29,7 +29,6 @@ for file in os.listdir(data_dir):
             c5 = re.sub("\n", " ", c4)
             # reducing multiple spaces to single spaces
             clean_text = re.sub(r"[\s]{2,}", " ", c5)
-            print(clean_text)
             print("Running NLP...")
             # Let spaCy do its magic
             doc = nlp(clean_text)
@@ -39,9 +38,10 @@ for file in os.listdir(data_dir):
                     for token in doc
                     if not token.is_stop and not token.is_punct and not token.is_space]
             word_cnt = Counter(words)
+            print(word_cnt)
             the_great_counter.update(word_cnt)
         except Exception as err:
-            print(f"Skipping {file.name} due to {err}")
+            print(f"Skipping {opened_file.name} due to {err}")
             print(traceback.format_exc())
 
 print("Sorting...")

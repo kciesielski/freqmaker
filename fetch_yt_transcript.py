@@ -4,17 +4,22 @@ import requests
 from youtube_transcript_api import YouTubeTranscriptApi
 
 channels = [ 
-  #  'UCMCgOm8GZkHp8zJ6l7_hIuA', # Juri Dudz
-  #  'UCklUqFEcJqFnWKEBozw5p4g', # Russian with Max
-    #'UC101o-vQ2iOj9vr00JUlyKw', # Varlamov Live
-    #'UCzlzGhKI5Y1LIeDJI53cWjQ', # Urgant
-    #'UC2tsySbe9TNrI-xh2lximHA', # A4
-    #'UC8M5YVWQan_3Elm-URehz9w', # Utopia show
-    #'UCF0ZeqSkybD1aFtFxjA8z9w', # Russian Progress
+    'UCMCgOm8GZkHp8zJ6l7_hIuA', # Juri Dudz
+    'UCklUqFEcJqFnWKEBozw5p4g', # Russian with Max
+    'UC101o-vQ2iOj9vr00JUlyKw', # Varlamov Live
+    'UCzlzGhKI5Y1LIeDJI53cWjQ', # Urgant
+    'UC2tsySbe9TNrI-xh2lximHA', # A4
+    'UC8M5YVWQan_3Elm-URehz9w', # Utopia show
+    'UCF0ZeqSkybD1aFtFxjA8z9w', # Russian Progress
     'UCaoKqmANMlBIJWyWJPUU9YA', # Tatiana Klimova
-    'UCQg2AzkYEueS5giD84wxLdg' # RU-Land club
-
+    'UCQg2AzkYEueS5giD84wxLdg', # RU-Land club
+    'UCQwRlx8hVI-CFv_E-v5s84Q', #  Адвокат Егоров 
+    'UCU_a2V_uDPSxvbV2B0tW7vA', #  Всё как у зверей
+    'UC6cqazSR6CnVMClY0bJI0Lg', # Bad Comedian
+    'UCU_yU4xGT9hrVFo6euH8LLw', # Slivki Show
+    'UCxDZs_ltFFvn0FDHT6kmoXA' # Bald and Bankrupt
 ]
+
 lang = 'ru'
 yt_api_key = os.getenv("YT_API_KEY")
 #published_after = "2021-11-01T16:00:00Z"

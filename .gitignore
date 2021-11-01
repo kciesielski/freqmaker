@@ -11,6 +11,7 @@ __pycache__/
 build/
 develop-eggs/
 data/
+test-data/
 subtitles.txt
 dist/
 downloads/

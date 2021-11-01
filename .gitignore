@@ -19,6 +19,7 @@ eggs/
 .eggs/
 freq.csv
 yt_api_key.txt
+.envrc
 lib/
 lib64/
 parts/
